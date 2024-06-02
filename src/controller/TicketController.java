@@ -14,6 +14,12 @@ public class TicketController {
     private TicketService ticketService;
 
 
+
+    public TicketController(TicketService ticketService){
+        this.ticketService = ticketService;
+    }
+
+
     // issue a ticket
     public GenerateTicketResponseDto generateTicket(GenerateTicketRequestDto request) {
         String vehicleNumber = request.getVehicleNumber();

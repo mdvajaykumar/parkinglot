@@ -20,6 +20,18 @@ public class TicketService {
     private TicketRepository ticketRepository;
     private ParkingLotRepository parkingLotRepository;
 
+    public TicketService(IGateRepository gateRepository,
+                         VehicleRepository vehicleRepository,
+                         SpotAssignmentStrategy spotAssignmentStrategy,
+                         TicketRepository ticketRepository,
+                         ParkingLotRepository parkingLotRepository) {
+        this.gateRepository = gateRepository;
+        this.vehicleRepository = vehicleRepository;
+        this.spotAssignmentStrategy = spotAssignmentStrategy;
+        this.ticketRepository = ticketRepository;
+        this.parkingLotRepository = parkingLotRepository;
+    }
+
     public Ticket generateTicket(
             Long gateId, VehicleType vehicleType, String vehicleNumber) throws InvalidGateException, NoAvailableSpotException {
         /*
